@@ -1,0 +1,584 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    /* padding: 62.5%;
+    margin: 62.5%; */
+    font-size: 62.5%;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    background-color: #f5f5f5;
+}
+
+:root {
+    --sidewidth: 35rem;
+    --chatListWidth: 94rem;
+    --previewSectionWidth: 35rem;
+    --userDataSectonWidth: calc(
+        var(--chatListWidth) - var(--previewSectionWidth) -
+    );
+}
+
+/* Scroll Bar Customization */
+::-webkit-scrollbar {
+    width: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background-color: #318ce7;
+}
+
+button:disabled {
+    opacity: 70%;
+}
+
+/* Navigation bar */
+
+.navBar {
+    background-color: #b2ffff;
+    height: 6rem;
+    position: fixed;
+    left: calc(var(--sidewidth) - 1rem);
+    right: 0rem;
+    width: auto;
+
+    box-shadow: #f5f5f5 0rem 0.8rem 0.5rem;
+}
+
+.navBar .profile {
+    display: inline-block;
+}
+
+.profile > p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 20rem;
+    font-size: 2rem;
+    margin-top: 1rem;
+    padding: 1rem 0rem;
+    display: inline-block;
+    position: absolute;
+}
+
+#logo {
+    width: fit-content;
+    background-color: #b2ffff;
+    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 2rem;
+    display: flex;
+    margin: 0 auto;
+}
+
+#logo h3 {
+    font-size: 2.667rem;
+    padding: 1.2rem 1rem 1.2rem 3rem;
+    display: inline-block;
+}
+
+.navBar .signInUp {
+    display: inline-block;
+    position: absolute;
+    right: 1rem;
+}
+
+.loginParam {
+    width: 16rem;
+    padding: 0.5rem;
+    font-size: 1.6rem;
+    margin-right: 1rem;
+    border: 0.2rem solid #318ce7;
+    border-radius: 0.5rem;
+}
+
+/* All buttons */
+
+button {
+    cursor: pointer;
+    background-color: #318ce7;
+    margin-right: 1.5rem;
+    margin-top: 1rem;
+    color: #eeeeff;
+    font-size: 1.6rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition-delay: 100ms;
+}
+
+/* Side nav */
+
+.sidenav {
+    height: auto;
+    padding: 1rem;
+    width: var(--sidewidth);
+    position: fixed;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-right: #b2ffff 0.8rem solid;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    bottom: 0rem;
+    background-color: #e5e4e2;
+    overflow-x: hidden;
+    padding-top: 1rem;
+}
+
+.connectedTo,
+.people,
+.bio,
+.connectedUsers > #title {
+    border: 0.2rem solid;
+    width: fit-content;
+    background-color: #b2ffff;
+    margin: 2rem auto;
+    margin-top: 4rem;
+    border-radius: 1.5rem;
+    align-items: center;
+    padding: 2rem 4rem;
+}
+
+.connectedUsers {
+    width: 23rem;
+    margin: 0.5rem auto;
+}
+
+.connectedUsers > #userList,
+.userDataSection > #globalUserList {
+    max-height: 44rem;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.connectedUsers > #title {
+    border-radius: 0.8rem;
+    border: none;
+    width: 23rem;
+    padding: 0.8rem 1rem 0.8rem 4rem;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.connectedUsers .currentUser,
+.globalUser {
+    margin-bottom: 0.8rem;
+    border-left: 0.5rem solid #318ce7;
+    font-size: 2rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-top-right-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.connectedUsers .currentUser:hover,
+.globalUser:hover {
+    background-color: #b2ffff;
+}
+
+.connectedTo #userName {
+    width: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 2.2667rem;
+    margin-top: 0.5rem;
+    font-weight: bolder;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: initial;
+}
+
+.goglobal {
+    position: absolute;
+    left: calc((var(--sidewidth) - 23rem) / 2);
+    bottom: 10rem;
+    width: fit-content;
+    background-color: #b2ffff;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    border-radius: 1rem;
+}
+
+.goglobal > button {
+    margin: 0;
+    font-size: 2.4rem;
+    padding: 0.5rem 0.8rem;
+}
+
+.goglobal > span {
+    padding: 0.5rem 7rem 0.5rem 4rem;
+}
+
+.people {
+    border: none;
+    position: fixed;
+    left: calc((var(--sidewidth) - 23rem) / 2);
+    bottom: 2rem;
+    width: 23rem;
+    padding: 1.3rem 4rem;
+}
+
+.people > p,
+span {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.8667rem;
+}
+
+.people > p {
+    position: relative;
+    left: 7rem;
+}
+
+/* Chats section */
+
+.chats {
+    position: fixed;
+    height: auto;
+    width: calc(100vw - var(--sidewidth));
+    top: 6rem;
+    left: var(--sidewidth);
+    bottom: 4.5rem;
+    right: 0;
+}
+
+.chats .messageDiv {
+    /* bottom: 4.5rem; */
+    left: calc((100vw - var(--sidewidth)) / 2);
+    margin: 0rem auto;
+    border-radius: 1rem;
+    /* right: 1.0rem; */
+    width: fit-content;
+    background-color: #e5e4e2;
+}
+
+.chats .messageDiv #messageBox {
+    width: 60rem;
+    height: 3.4667rem;
+    font-size: 1.6rem;
+    padding: 0 1rem;
+    margin: 1.5rem 2rem;
+    border-radius: 1rem;
+}
+
+#messageBox:disabled {
+    background-color: #f5f5f5;
+}
+
+.chatList,
+.chats > .top {
+    height: auto;
+    font-size: 2.4rem;
+    font-weight: bold;
+    padding: 1rem;
+    /* margin: 1.0rem 11.0rem; */
+    margin: 1rem auto;
+    width: var(--chatListWidth);
+    min-width: 65rem;
+    border-radius: 1rem;
+    background-color: #e5e4e2;
+}
+
+.chats > .top {
+    padding-left: 2rem;
+}
+
+.chatList {
+    background: linear-gradient(
+            rgba(255, 255, 255, 0.2),
+            rgba(255, 255, 255, 0.2)
+        ),
+        url("./Images/chatListBackground.png") center;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: auto calc(0.8 * (100vh - 25rem));
+
+    background-color: transparent;
+    height: calc(100vh - 25rem);
+    border-left: #b2ffff 0.5rem solid;
+    border-right: #b2ffff 0.5rem solid;
+    overflow: auto;
+}
+
+/* Chat Message design */
+.send {
+    float: right;
+    clear: both;
+
+    width: fit-content;
+    max-width: calc(0.6 * var(--chatListWidth));
+    background-color: #b2ffff;
+    right: 1.5rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.733rem;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+}
+
+.left {
+    float: none;
+    clear: both;
+    color: #f5f5f5;
+    width: fit-content;
+    background-color: #318ce7;
+    right: 1.5rem;
+    padding: 0.3rem 1.2rem;
+    border-radius: 0.5rem;
+    font-size: 1.333rem;
+    font-weight: normal;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+    position: relative;
+    left: calc(var(--chatListWidth) / 2 - 6rem);
+}
+
+.received {
+    float: left;
+    clear: both;
+
+    width: fit-content;
+    max-width: calc(0.6 * var(--chatListWidth));
+    background-color: #e5e4e2;
+    left: 1.5rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.733rem;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+}
+
+/* Footer Section */
+
+.bottomFooter {
+    width: 100vw;
+    height: 3.5rem;
+    background-color: #b2ffff;
+    position: fixed;
+    bottom: 0rem;
+    /* left: calc(var(--sidewidth) - 2rem); */
+}
+
+.bottomFooter h3 {
+    position: absolute;
+    left: calc(var(--sidewidth) + (100vw - var(--sidewidth)) / 2 - 2rem);
+    font-size: 1.6rem;
+    padding-top: 0.9rem;
+}
+
+.bottomFooter .fab,
+.fas {
+    font-size: 1.6rem;
+}
+
+/* Signup page */
+
+#signuppage,
+#globalUserPage {
+    display: none;
+    width: calc(var(--chatListWidth) - 3rem);
+    position: fixed;
+    top: 13rem;
+    /* left: 47.5rem; */
+    height: calc(100vh - 25rem);
+    min-height: 300px;
+    right: calc((100vw - var(--sidewidth) - var(--chatListWidth) + 3rem) / 2);
+    background-color: #e5e4e2;
+    border-radius: 1rem;
+    animation-name: signupanim;
+    animation-duration: 0.4s;
+    animation-timing-function: linear;
+}
+
+@keyframes signupanim {
+    0% {
+        transform: translateY(-80rem) scale(0.1, 0.1);
+    }
+
+    100% {
+        transform: translateY(0rem);
+    }
+}
+
+#userSignup {
+    width: fit-content;
+    height: fit-content;
+    display: inline-block;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#userSignup input,
+textarea {
+    clear: right;
+    left: 10rem;
+    width: 30rem;
+    padding: 0.8rem;
+    font-size: 1.6rem;
+    border-radius: 0.4rem;
+    margin: 1rem;
+    border: 0.2rem solid #318ce7;
+}
+
+#userSignup label {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#userSignup input[name="signupPassword"] {
+    margin-left: 1.5rem;
+}
+#userSignup textarea[name="signupBio"] {
+    margin-left: 6.8rem;
+    margin-bottom: 2rem;
+    font-family: sans-serif;
+    font-size: 1.6rem;
+}
+
+#signupSubmit,
+#signupReset {
+    float: right;
+}
+
+button:active {
+    background-color: #e5e4e2;
+    color: black;
+}
+
+/* Global User page */
+/* User Search Section */
+
+.userDataSection {
+    display: inline-block;
+    width: var(--userDataSectonWidth);
+    height: 100%;
+    padding: 2rem;
+    padding-right: 0;
+}
+
+.userDataSection #inpSearch {
+    font-size: 1.733rem;
+    border-radius: 0.5rem;
+    border: 0.2rem solid #318ce7;
+    padding: 0.5rem;
+    margin: 1rem 1.5rem;
+}
+
+.userDataSection > #globalUserList {
+    /* width: 34rem; */
+    margin: 0 0 0 1.5rem;
+    max-height: calc(100vh - 34rem);
+    min-height: 21rem;
+    padding-right: 1rem;
+}
+
+.globalUser {
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+/* User Preview */
+
+.previewSection {
+    /* background-color: lime; */
+    display: block;
+    width: var(--previewSectionWidth);
+    float: right;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border: 0.2rem dashed;
+    border-radius: 1rem;
+}
+.bio {
+    position: relative;
+    width: 23rem;
+    padding: 1.5rem;
+    padding-top: 1.7rem;
+}
+.bio > #title {
+    background-color: #b2ffff;
+    position: absolute;
+    top: -1.5rem;
+    font-weight: bold;
+    font-size: 1.8667rem;
+    left: 1.5rem;
+    padding: 0.2rem 0.4rem;
+    border: 0.2rem solid;
+    border-radius: 1rem;
+}
+
+.bio > #description {
+    text-align: center;
+    overflow-y: auto;
+    max-height: 8.1rem;
+    font-size: 1.6rem;
+    padding-right: 0.5rem;
+}
+
+#nextUser {
+    width: 23rem;
+    margin: 0.5rem auto 1.5rem auto;
+    margin-left: calc((var(--previewSectionWidth) - 24rem) / 2);
+}
+
+/* Media queries for responsive */
+@media screen and (max-width: 1300px) {
+    :root {
+        --sidewidth: 30rem;
+        --chatListWidth: calc(100vw - var(--sidewidth) - 2rem);
+        --previewSectionWidth: 30rem;
+    }
+}
+
+@media (max-width: 1135px) {
+    .userDataSection #inpSearch {
+        display: block;
+        margin-bottom: 0;
+    }
+    .userDataSection button {
+        margin-bottom: 1rem;
+        margin-left: 2rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    * {
+        font-size: 58%;
+    }
+}
+
+@media (max-width: 940px) {
+    .chats .messageDiv #messageBox {
+        width: 50rem;
+    }
+}
+
+@media (max-width: 768px) {
+    * {
+        font-size: 50%;
+    }
+    #logo h3 {
+        padding-left: 1rem;
+        padding-top: 2.2rem;
+    }
+}

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lets Connect</title>
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script defer src="./index.js"></script>
+</head>
+
+<body>
+
+    <!-- Header  -->
+
+    <header class="topHeader">
+        <nav class="navBar">
+
+            <div class="profile">
+                <img src="./Images/profile.png" width="40" style="margin: 12px 20px;">
+                <p id="mainUser">Hi There!!</p>
+            </div>
+
+            <div class="signInUp">
+                <button id="btnLogout" type="button" style="display: none;">Log out</button>
+
+                <form id="formLogin" style="display: inline-block;">
+                    <input type="text" name="loginUser" class="loginParam" placeholder="User Name">
+                    <input type="password" name="loginPassword" class="loginParam" placeholder="Password" id="loginPassword">
+                    <button type="button" id="signIn">Log in</button>
+                </form>
+
+                <button type="button" id="signUp">Sign up</button>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- Sidenav bar -->
+
+    <div class="sidenav">
+        <div id="logo">
+            <img src="./Images/logo.png" alt="Logo Image" width="70" style="background-color: #318CE7; ">
+            <h3>Lets Connect</h3>
+        </div>
+
+        <div class="connectedUsers">
+            <div id="title">Connected Users</div>
+            <div id="userList">
+            </div>
+        </div>
+
+        <div class="goglobal">
+            <span>Go Global</span>
+            <button type="button" id="btnGoGlobal">➡</button>
+        </div>
+
+        <div class="people">
+            <!--  <span>Available: </span>
+            <p id="availableUser">-</p>
+            <br>
+            <br> -->
+            <span>Online: &nbsp; &nbsp; </span>
+            <p id="totalOnline">-</p>
+        </div>
+
+    </div>
+
+
+    <!-- chats part -->
+
+    <div class="chats">
+        <div class="top" id="heading">Chats</div>
+        <div class="chatList" id="scrl">
+
+            <div class="send">Hey!!</div>
+            <div class="received ">Hello</div>
+            <div class="received ">How you doing?</div>
+
+            <div class="left">User left the chat</div>
+
+
+        </div>
+        <div class="messageDiv">
+            <input type="text" id="messageBox" spellcheck="false">
+            <button type="button" id="sendMessage">Send</button>
+        </div>
+    </div>
+
+
+    <!-- Footer  -->
+
+    <footer class="bottomFooter">
+        <h3>© Kanti Bhadra Vimal &nbsp;
+            <a href="https://github.com/VimalBhadra" target="_blank"><i class="fab fa-github-square"></i></a>
+            &nbsp;
+            <a href="https://www.linkedin.com/in/kbvimal" target="_blank"><i
+                    class="fab fa-linkedin"></i></a>
+        </h3>
+    </footer>
+
+    <!-- Signup page -->
+    <div id="signuppage">
+        <form id="userSignup">
+            <label for="signupUsername">Username</label>
+            <input type="text" name="signupUsername" id="signupUsername" spellcheck="false">
+            <button type="button" id="checkAvail">Check Available</button>
+            <div style="width: 20px; height: 20px; display: inline; overflow: hidden;">
+                <span id="checkMark" style="color: green; visibility: hidden; display: inline;">✔</span>
+            </div>
+            <br>
+
+            <label for="signupPassword">Password</label>
+            <input type="password" name="signupPassword" id="signupPassword">
+
+            <br>
+
+            <label for="signupBio">Bio
+                <textarea name="signupBio" rows="3" style="vertical-align: middle;" spellcheck="false"
+                    placeholder="Tell us Something about you..."></textarea></label>
+
+            <br>
+
+            <button type="submit" id="signupSubmit">Submit</button>
+            <button type="reset" id="signupReset">Reset</button>
+            <button type="button" id="signupCancel">Cancel</button>
+        </form>
+    </div>
+
+    <!-- Global Users Page -->
+    <div id="globalUserPage">
+
+        <div class="userDataSection">
+            <div id="search" >
+                <input type="text" id="inpSearch" spellcheck="false" placeholder="Search User">
+                <button id="btnSearch">FIND &nbsp;
+                    <i class="fas fa-search"></i>
+                </button>
+                <button id="btnCancelGlobal">CANCEL</button>
+            </div>
+            <div id="globalUserList">
+                <!-- <div class="globalUser">Bhuwan</div>
+                <div class="globalUser">SumanKSah</div>
+                <div class="globalUser">Demo</div> -->
+            </div>
+        </div>
+        <div class="previewSection">
+
+            <div class="connectedTo">
+                <img src="./Images/person.png" alt="Person image" width="150" style="width: 150px; margin: 0 auto;">
+                <div id="userName">User Name</div>
+            </div>
+
+            <div class="bio">
+                <div id="title">Bio:</div>
+                <div id="description">This is a demo description of user!
+                </div>
+            </div>
+
+            <button type="button" id="nextUser">CONNECT</button>
+        </div>
+
+    </div>
+    <!-- Audio for Incomming messages -->
+    <audio src="./Images/liveAudio.mp3" id="audioLive"></audio>
+    <audio src="./Images/otherAudio.mp3" id="audioOther"></audio>
+    <audio src="./Images/sentAudio.mp3" id="audioSent"></audio>
+
+</body>
+
+</html>
