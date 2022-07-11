@@ -5,7 +5,7 @@ It's a Real-time chat web-application made using HTML, CSS and JavaScript for Fr
 This is a fully asynchronized website made using vanilla JavaScript(ES6). <br>
 Used fetch api for all the calls made to the server. <br><br>
 
-Check this out: **[https://letschat-sumanksah.herokuapp.com](https://letschat-sumanksah.herokuapp.com/)** <br>
+Check this out: **[https://letsconnect-vimalbhadra.herokuapp.com/](https://letsconnect-vimalbhadra.herokuapp.com/)** <br>
 
 ## Libraries Used: 
 &emsp; 1. mongodb - for handling CRUD operation <br>
